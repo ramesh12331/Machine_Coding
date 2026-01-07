@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+.heading {
+  @apply font-bold text-4xl text-center py-6
+}
+
+.card-menu{
+  @apply my-20
+}
+
+.card {
+  @apply flex flex-wrap gap-4 justify-center text-center
+}
+
+.card-section { 
+  @apply bg-gray-50 rounded-4xl shadow-2xl p-4
+}
+
+.img {
+  @apply w-[300px] h-[250px]
+}
+
+.title {
+  @apply font-medium
+}
+
+.pagination {
+  @apply text-center mb-5
+}
+
+.page-number {
+  @apply border-1 mx-1 p-2 rounded-2xl cursor-pointer
+}
+
+.active{
+  @apply bg-green-300
+}
