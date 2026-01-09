@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.container {
+  @apply text-center py-10
+}
+
+.container h1 {
+  @apply text-4xl font-bold py-4
+}
+
+.input-text{
+  @apply border-gray-400 border-2 w-[500px] p-2 rounded-2xl
+}
+
+.results-container {
+  @apply w-[500px] mx-auto border-gray-400 border-2 p-5 text-left  overflow-y-auto rounded mt-1 max-h-screen
+}
+
+.results{
+  @apply block p-2 hover:bg-gray-100 rounded-2xl cursor-pointer
+}
