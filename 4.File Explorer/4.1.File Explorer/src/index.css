@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.title {
+  @apply text-center font-bold text-4xl py-4
+}
+
+.container{
+  @apply pl-[20px]
+}
+
+.btn{
+  @apply cursor-pointer
+}
