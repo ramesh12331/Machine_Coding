@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.app{
+  @apply text-center
+}
+
+.title {
+  @apply text-4xl font-bold  py-4 
+}
+
+.input {
+  @apply  border-1 border-gray-300 w-[300px] h-8 rounded-l-full rounded-r-full p-4 mb-4
+}
+
+.chip{
+  @apply inline-flex items-center 
+         bg-gray-200 text-gray-800 
+         text-sm font-medium
+         px-3 py-1
+         rounded-full
+         shadow-sm
+         hover:bg-gray-300
+         transition-colors duration-200
+         cursor-default;
+}

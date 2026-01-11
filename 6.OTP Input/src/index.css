@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.app{
+  @apply text-center
+}
+
+.title {
+  @apply text-4xl font-bold  py-2 
+}
+
+.input {
+  @apply border-gray-500 border-2 w-10 h-10 text-center rounded-xl mx-0.5 text-2xl font-bold
+}
+

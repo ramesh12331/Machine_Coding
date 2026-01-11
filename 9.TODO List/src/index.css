@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+.app{
+  @apply text-center
+}
+
+.title {
+  @apply text-4xl font-bold  py-4 
+}
+
+.input {
+  @apply  border-1 border-gray-300 w-[300px] h-8 rounded-l-full rounded-r-full p-4 mb-4
+}
+
+
+
+.btn{
+  @apply bg-green-500 px-2 py-1 rounded-2xl 
+
+}
+
+.strikeThrough{
+  @apply line-through
+}
