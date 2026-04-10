@@ -263,23 +263,46 @@ setData(prev => updateTree(prev))
 
 ```js
 const addNodeToList = (parentId) => {
+  // Ask user for the new node name
   const name = prompt("Enter Name");
 
+  // Create a new node object (you forgot this in your code)
+  const newNode = {
+    id: Date.now(),     // unique id (simple approach)
+    name: name,
+    children: []        // new node starts with no children
+  };
+
+  // Recursive function to traverse and update the tree
   const updateTree = (list) => {
     return list.map(node => {
+
+      // Case 1: If current node is the parent we are targeting
       if (node.id === parentId) {
         return {
-          ...node,
+          ...node,  // keep existing properties
+
+          // Add the new node to its children
           children: [...node.children, newNode]
         };
       }
+
+      // Case 2: If node has children, recurse deeper
       if (node.children) {
-        return { ...node, children: updateTree(node.children) };
+        return {
+          ...node,
+
+          // Recursively update children
+          children: updateTree(node.children)
+        };
       }
+
+      // Case 3: If no match and no children, return node unchanged
       return node;
     });
   };
 
+  // Update state using previous state safely
   setData(prev => updateTree(prev));
 };
 ```
