@@ -212,7 +212,11 @@ array.filter(item => condition)
 **Example from this project:**
 
 ```js
-list.filter(node => node.id !== itemId)
+list.filter(node => {
+  // If this is TRUE → node is kept
+  // If this is FALSE → node is removed
+  return node.id !== itemId;
+});
 ```
 
 ---
