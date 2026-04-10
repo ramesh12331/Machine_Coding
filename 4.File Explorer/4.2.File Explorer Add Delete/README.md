@@ -317,29 +317,45 @@ const addNodeToList = (parentId) => {
 
 ```js
 const deleteNodeFromList = (itemId) => {
+  // This function deletes a node (and its entire subtree)
+  // from a nested tree structure using recursion
 
-  // Recursive function to traverse and update the tree
   const updateTree = (list) => {
+    // 'list' is an array of nodes at the current level
+
     return list
 
-      // Step 1: Remove the node with matching id at current level
+      // STEP 1: Remove the node if its id matches itemId
       .filter(node => node.id !== itemId)
+      // If node.id === itemId → removed
+      // If node.id !== itemId → kept
 
-      // Step 2: Traverse remaining nodes
-      .map(node => 
-        node.children
-          ? {
-              ...node, // keep existing properties
+      // STEP 2: Traverse remaining nodes
+      .map(node => {
 
-              // Recursively clean children as well
-              children: updateTree(node.children)
-            }
-          : node // if no children, return as is
-      );
+        // Check if the node has children (nested structure)
+        if (node.children) {
+
+          return {
+            ...node, 
+            // Spread existing node properties (immutability)
+
+            children: updateTree(node.children)
+            // 🔁 RECURSION:
+            // Call updateTree again on children
+            // This ensures deletion works at ANY depth
+          };
+        }
+
+        // If no children → return node unchanged
+        return node;
+      });
   };
 
-  // Update state safely using previous state
+  // STEP 3: Update React state safely
   setData(prev => updateTree(prev));
+  // 'prev' is the latest state
+  // We pass it into updateTree to get a new updated tree
 };
 ```
 
