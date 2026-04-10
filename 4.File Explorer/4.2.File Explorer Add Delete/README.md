@@ -313,15 +313,28 @@ const addNodeToList = (parentId) => {
 
 ```js
 const deleteNodeFromList = (itemId) => {
+
+  // Recursive function to traverse and update the tree
   const updateTree = (list) => {
     return list
+
+      // Step 1: Remove the node with matching id at current level
       .filter(node => node.id !== itemId)
-      .map(node => node.children
-        ? { ...node, children: updateTree(node.children) }
-        : node
+
+      // Step 2: Traverse remaining nodes
+      .map(node => 
+        node.children
+          ? {
+              ...node, // keep existing properties
+
+              // Recursively clean children as well
+              children: updateTree(node.children)
+            }
+          : node // if no children, return as is
       );
   };
 
+  // Update state safely using previous state
   setData(prev => updateTree(prev));
 };
 ```
