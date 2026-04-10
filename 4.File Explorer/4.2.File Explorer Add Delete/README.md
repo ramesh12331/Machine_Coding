@@ -397,3 +397,97 @@ This File Explorer project demonstrates:
 ---
 
 ✨ Ideal for machine coding rounds, frontend interviews, and portfolio projects.
+
+---
+
+# 📊 JavaScript `.filter()` Dry Run Explanation
+
+This document explains how the following code works using a step-by-step dry run:
+
+```javascript
+list.filter(node => node.id !== itemId)
+```
+
+---
+
+## 🧪 Example Input
+
+```javascript
+const list = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 }
+];
+
+const itemId = 2;
+```
+
+---
+
+## 📊 Dry Run Table
+
+| Step | Current Node | node.id | Condition (`node.id !== 2`) | Result  | Action |
+| ---- | ------------ | ------- | --------------------------- | ------- | ------ |
+| 1    | `{id: 1}`    | 1       | `1 !== 2 → true`            | ✅ true  | Keep   |
+| 2    | `{id: 2}`    | 2       | `2 !== 2 → false`           | ❌ false | Remove |
+| 3    | `{id: 3}`    | 3       | `3 !== 2 → true`            | ✅ true  | Keep   |
+
+---
+
+## ✅ Final Output
+
+```javascript
+[{ id: 1 }, { id: 3 }]
+```
+
+---
+
+## 🧠 How `.filter()` Works Internally
+
+```javascript
+const result = [];
+
+for (let node of list) {
+  if (node.id !== itemId) {
+    result.push(node);
+  }
+}
+```
+
+---
+
+## 🎯 Key Concept
+
+* `.filter()` returns a **new array**
+* It **keeps elements where condition is true**
+* It **removes elements where condition is false**
+
+---
+
+## ⚡ Summary
+
+> Filter = Keep only the elements that satisfy the condition
+
+---
+
+## 🚀 Use Case in Tree Structures
+
+This pattern is commonly used in:
+
+* Deleting items from lists
+* Removing nodes in tree structures
+* Filtering data in React state updates
+
+---
+
+## 📌 Tip for Interviews
+
+Always remember:
+
+* `true` → element stays
+* `false` → element removed
+
+---
+
+Happy Coding! 🎉
+
