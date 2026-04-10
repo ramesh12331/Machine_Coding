@@ -161,9 +161,16 @@ Using objects to track state for multiple dynamic items.
 
 ```js
 setIsExpanded(prev => ({
+  // Spread the previous state object so we keep all existing keys/values
   ...prev,
+
+  // Use the node's name as a dynamic key
+  // This updates (or adds) the specific node's expanded state
   [node.name]: !prev[node.name]
-}))
+  // Toggle the current value:
+  // if it was true → becomes false
+  // if it was false or undefined → becomes true
+}));
 ```
 
 ---
