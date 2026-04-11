@@ -70,7 +70,22 @@ The spread operator expands iterable values into individual elements.
 **Syntax:**
 
 ```js
+// Create an array of numbers from 0 to n-1
 [...Array(n).keys()]
+
+// Step 1: Array(n)
+// Creates an empty array with length n
+// Example: Array(4) → [empty, empty, empty, empty]
+
+// Step 2: .keys()
+// Gives the index positions of the array
+// Example: 0, 1, 2, 3
+
+// Step 3: ... (spread operator)
+// Converts the values into a real array
+
+// Final result:
+// [0, 1, 2, 3]  (for n = 4)
 ```
 
 **Used In Project:**
