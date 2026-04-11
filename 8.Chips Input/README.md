@@ -298,6 +298,11 @@ onClick={(index) => handleDeleteChip(index)}
 ```js
 onClick={() => handleDeleteChip(i)}
 ```
+| Code                                 | Passed Value    | Result |
+| ------------------------------------ | --------------- | ------ |
+| `(index) => handleDeleteChip(index)` | event object ❌  | Bug    |
+| `() => handleDeleteChip(i)`          | correct index ✅ | Works  |
+
 
 Interviewers love when you catch this.
 
