@@ -208,9 +208,20 @@ array.splice(index, count);
 **Example from this project:**
 
 ```js
+// Create a shallow copy of the original array (important for immutability)
 const copyChips = [...chips];
+// Using spread operator (...) ensures we DO NOT modify the original state directly
+
+// Remove 1 element at the given index
 copyChips.splice(index, 1);
+// splice(startIndex, deleteCount)
+// → startIndex = index
+// → deleteCount = 1 (remove one item)
+// This mutates copyChips (which is okay since it's a copy)
+
+// Update React state with the modified array
 setChips(copyChips);
+// React re-renders because we provided a new array reference
 ```
 
 ---
