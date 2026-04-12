@@ -169,9 +169,22 @@ array.map(item => newItem);
 **Example from this project:**
 
 ```js
+// Update todo list by toggling completed status of a specific item
 setTodoList(
   todoList.map(t =>
-    t.id === id ? { ...t, completed: !t.completed } : t
+    // Check if this is the todo we want to update
+    t.id === id
+      ? {
+          ...t, 
+          // Copy all existing properties of the todo
+
+          completed: !t.completed 
+          // Toggle completed:
+          // true → false
+          // false → true
+        }
+      : t
+      // If not the matching todo, return it unchanged
   )
 );
 ```
